@@ -9,7 +9,7 @@ if [ -e node_modules/.bin/eslint ]; then
 else
     echo "## Your environment is not ready yet. Installing modules..."
     if [ -f yarn.lock ]; then
-        setup="yarn --non-interactive --silent --ignore-scripts --production=false &&"
+        setup="yarn --non-interactive --ignore-scripts --production=false &&"
     else
         if [ -f package-lock.json ]; then
             setup="NODE_ENV=development yarn install --ignore-scripts &&"
