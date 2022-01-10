@@ -5,11 +5,11 @@ set -e
 
 # Setup node modules if needed
 if [ -e node_modules/.bin/eslint ]; then
-    setup=""
+    setup="/bin/sh -c apk add git &&"
 else
     echo "## Your environment is not ready yet. Installing modules..."
     if [ -f yarn.lock ]; then
-        setup="yarn add git && yarn --non-interactive --silent --ignore-scripts --production=false &&"
+        setup="yarn --non-interactive --silent --ignore-scripts --production=false &&"
     else
         if [ -f package-lock.json ]; then
             setup="NODE_ENV=development yarn install --ignore-scripts &&"
